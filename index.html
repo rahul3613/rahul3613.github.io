@@ -139,7 +139,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding: 2rem 0;
+            padding: 6rem 0 2rem 0;
         }
 
         .hero-content {
@@ -376,33 +376,336 @@
             gap: 2rem;
         }
 
+        /* Mobile Navigation Toggle */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         /* Mobile Responsive */
+        
+        /* Large tablets and small laptops */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-content {
+                gap: 2rem;
+            }
+            
+            .grid-2 {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        /* Tablets */
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 18, 24, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 1rem 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
             
             .hero-text h1 {
                 font-size: 2.5rem;
             }
             
-            .nav-links {
-                display: none;
+            .hero-text h1 span {
+                font-size: 2rem !important;
             }
             
-            .hero-stats {
-                justify-content: center;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
-            .grid-2,
-            .grid-3 {
-                grid-template-columns: 1fr;
+            .hero-description {
+                font-size: 1rem;
+                text-align: center !important;
             }
             
             .profile-photo {
                 width: 200px;
                 height: 200px;
+            }
+            
+            .contact-info {
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .contact-item i {
+                font-size: 1.3rem;
+            }
+            
+            .contact-item span {
+                font-size: 0.8rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            /* Reduce font sizes in cards for mobile */
+            .card p {
+                font-size: 0.9rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            .card h3 {
+                font-size: 1.1rem !important;
+            }
+            
+            .card div[style*="font-size: 1.1rem"] {
+                font-size: 0.95rem !important;
+            }
+            
+            /* About section specific */
+            .grid-2[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+            
+            .grid-2[style*="display: flex"] .card {
+                flex: none !important;
+                max-width: none !important;
+            }
+            
+            /* Project cards */
+            div[style*="display: flex"][style*="align-items: center"][style*="gap: 2rem"] {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 1rem !important;
+            }
+            
+            div[style*="display: flex"][style*="align-items: center"][style*="gap: 2rem"] h3 {
+                margin-bottom: 0.5rem !important;
+            }
+            
+            div[style*="display: flex"][style*="align-items: center"][style*="gap: 2rem"] span {
+                white-space: normal !important;
+            }
+        }
+
+        /* Large phones */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 5rem 0 1rem 0;
+                min-height: auto;
+            }
+            
+            .hero-content {
+                gap: 1.5rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero-text h1 span {
+                font-size: 1.5rem !important;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .contact-info {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            
+            .contact-item {
+                /* min-width: calc(50% - 7.5px); */
+                text-align: center;
+            }
+            
+            .section {
+                padding: 2rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .card {
+                padding: 1rem;
+                border-radius: 15px;
+            }
+            
+            /* Grid layouts */
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            /* Technology tags */
+            div[style*="display: flex"][style*="flex-wrap: wrap"][style*="gap: 0.5rem"] {
+                gap: 0.3rem !important;
+            }
+            
+            div[style*="display: flex"][style*="flex-wrap: wrap"][style*="gap: 0.5rem"] span {
+                padding: 0.2rem 0.6rem !important;
+                font-size: 0.75rem !important;
+            }
+            
+            /* Publications and projects */
+            div[style*="display: flex"][style*="justify-content: between"] {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+            
+            div[style*="background: var(--accent-blue)"][style*="padding: 0.5rem 1rem"] {
+                align-self: flex-start !important;
+                font-size: 0.75rem !important;
+                padding: 0.4rem 0.8rem !important;
+            }
+            
+            /* Achievement cards icons */
+            div[style*="display: flex"][style*="align-items: center"][style*="gap: 1rem"] i {
+                font-size: 1.5rem !important;
+            }
+            
+            /* Contact section */
+            .grid-2[style*="justify-content: center"] .card {
+                max-width: none !important;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 320px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-text h1 span {
+                font-size: 1.3rem !important;
+            }
+            
+            .contact-info {
+                gap: 10px;
+            }
+            
+            .contact-item {
+                min-width: 100%;
+            }
+            
+            .card {
+                padding: 0.8rem;
+            }
+            
+            /* Further reduce font sizes in cards for small mobile */
+            .card p {
+                font-size: 0.8rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            .card h3 {
+                font-size: 1rem !important;
+            }
+            
+            .card div[style*="font-size: 1.1rem"] {
+                font-size: 0.85rem !important;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
             }
         }
 
@@ -424,6 +727,9 @@
     <nav class="nav">
         <div class="nav-container">
             <div class="logo">RV</div>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -448,7 +754,7 @@
                         <span style="font-weight: 300; color: var(--text-secondary); font-size: 2.5rem;">Hi, I'm</span> Rahul Vishwakarma
                     </h1>
                     <p class="hero-subtitle">Researcher & Developer passionate about AI for Mathematics</p>
-                    <p class="hero-description" style="text-align: justify;">
+                    <p class="hero-description" style="">
                         Currently working as a System Engineer at BHERI Tech Foundation, developing LLM-based agents for easy access to Indian heritage knowledge with authentic sources. My primary research focus has been on neural theorem proving, using LLMs to prove mathematical theorems in formal environments.
                     </p>
                     
@@ -488,7 +794,7 @@
             
             <div class="grid-2" style="display: flex; gap: 2rem;">
                 <div class="card fade-in" style="flex: 0 0 60%; max-width: 60%;">                    
-                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; ">
                        I’m a <strong>researcher and developer</strong> passionate about bridging pure mathematics and artificial intelligence.
                         With an Integrated MSc in Mathematics and Computer Science from <strong>NISER Bhubaneswar</strong>,
                         I’ve cultivated a strong foundation in formal reasoning and computational thinking.
@@ -496,7 +802,7 @@
                         particularly how large language models can assist in generating formal mathematical proofs.
                     </p>
                     
-                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; ">
                         Currently, I work as a <strong>System Engineer at 
                             <a href="https://www.bheri.in/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">BHERI Tech Foundation</a>
                         </strong>,
@@ -599,10 +905,10 @@
                          <h3 style="color: var(--accent-cyan); font-size: 1.4rem; margin: 0;">Digital Takshashila</h3>
                          <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">Sept 24 - Ongoing</span>
                      </div>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         Currently (April 2025 – Present), I am working as a System Engineer at <a href="https://www.bheri.in/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">BHERI Tech Foundation</a>, where I am developing LLM-based agents to answer questions related to Indian heritage, referencing primary sources from the Dhara platform. The current version of the service is available at: <a href="https://project.iith.ac.in/bheri/prashna/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Dhara Prashna Page</a>.
                     </p>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         Previously (September 2024 – March 2025), I worked as a Junior Research Fellow (Project Associate) at IIT Hyderabad under the guidance of <a href="https://www.iith.ac.in/bme/mohanr/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Dr. Mohan Raghavan</a>. Our project focused on building a digital library to preserve and share ancient Indian knowledge by scraping diverse sources and creating a public-facing interface. The web portal providing access to our three main services (Dictionary, Verse Finder, Chunk Server) is available at: <a href="https://project.iith.ac.in/bheri/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Dhara Page</a>.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
@@ -625,7 +931,7 @@
                         <h3 style="color: var(--accent-blue); font-size: 1.4rem; margin: 0;">Neural Theorem Proving</h3>
                         <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">Jun 23 - Jun 24</span>
                     </div>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         This was my MSc thesis, supervised by <a href="https://www.niser.ac.in/~smishra/" target="_blank" style="color: var(--accent-blue); text-decoration: none;">Dr. Subhankar Mishra</a>. In this research, we fine-tuned LLMs (<a href="https://huggingface.co/docs/transformers/en/model_doc/byt5" target="_blank" style="color: var(--accent-blue); text-decoration: none;">ByT5</a>) and combined them with the interactive prover <a href="https://lean-lang.org/" target="_blank" style="color: var(--accent-blue); text-decoration: none;">Lean</a> to automate mathematical proof generation. Some of our contributions are - introduction of a dynamic sampling method, augmentation of the training dataset, and development of a tokenizer specific to Lean 4. Additionally, we developed a website for Neural Theorem Proving to make our method easily accessible through both web and API usage.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -643,7 +949,7 @@
                         <h3 style="color: var(--accent-emerald); font-size: 1.4rem; margin: 0;">GNN-Based Indoor Localization with WiFi RSSI</h3>
                         <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">Aug 22 - May 23</span>
                     </div>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         In this project, we focused on improving the accuracy of location prediction in an indoor environment using WiFi RSSI. We trained machine learning models to capture intricate signal strength patterns unique to indoor spaces. We introduced a method called IndoorGNN, which utilizes Graph Neural Networks to achieve superior indoor localization performance, surpassing conventional algorithms such as kNN, SVM, and MLP. This project resulted in the publication of <a href="https://link.springer.com/chapter/10.1007/978-3-031-49601-1_11" target="_blank" style="color: var(--accent-emerald); text-decoration: none;">IndoorGNN</a>.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -659,7 +965,7 @@
                         <h3 style="color: var(--accent-purple); font-size: 1.4rem; margin: 0;">Change detection in Satellite Images</h3>
                         <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">Jan - June 24</span>
                     </div>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         In this project, we used machine learning for change detection (for roads and buildings) in satellite images over time. We trained ML models to predict masks for roads and buildings, then compared them across different timelines to identify changes. We also launched a website where users can upload two images of a region to detect changes using our trained model.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -674,7 +980,7 @@
                         <h3 style="color: var(--accent-orange); font-size: 1.4rem; margin: 0;">Theorem Proving in Lean</h3>
                         <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">May - July 22</span>
                     </div>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         During my internship at <a href="https://iisc.ac.in/" target="_blank" style="color: var(--accent-orange); text-decoration: none;">IISc Bangalore</a> with <a href="http://math.iisc.ernet.in/~gadgil/" target="_blank" style="color: var(--accent-orange); text-decoration: none;">Prof. Siddhartha Gadgil</a>, I developed skills in theorem proving using the <a href="https://lean-lang.org/" target="_blank" style="color: var(--accent-orange); text-decoration: none;">Lean Interactive Theorem Prover</a>. Additionally, we explored the use of machine learning models to predict proof steps for theorems.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -688,7 +994,7 @@
                         <h3 style="color: var(--accent-cyan); font-size: 1.4rem; margin: 0;">Recommendation System</h3>
                         <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">March - May 22</span>
                     </div>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         Developed a file access pattern-based recommendation system for NISER Archive to suggest study materials.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -702,7 +1008,7 @@
                         <h3 style="color: var(--accent-blue); font-size: 1.4rem; margin: 0;">NISER Bus Tracker</h3>
                         <span style="color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;">June - Dec 22</span>
                     </div>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; ">
                         Developed a web app for sharing the live location of the NISER buses with its members.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -812,11 +1118,42 @@
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section, .hero');
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinksContainer = document.querySelector('.nav-links');
+
+            // Mobile navigation toggle
+            mobileNavToggle.addEventListener('click', function() {
+                navLinksContainer.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navLinksContainer.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-container')) {
+                    navLinksContainer.classList.remove('active');
+                    const icon = mobileNavToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
 
             // Navigation functionality
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
+                    
+                    // Close mobile menu
+                    navLinksContainer.classList.remove('active');
+                    const icon = mobileNavToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                     
                     navLinks.forEach(nl => nl.classList.remove('active'));
                     link.classList.add('active');
@@ -830,6 +1167,16 @@
                         });
                     }
                 });
+            });
+
+            // Close mobile menu on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    navLinksContainer.classList.remove('active');
+                    const icon = mobileNavToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
 
             // Scroll spy
